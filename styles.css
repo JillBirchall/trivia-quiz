@@ -118,7 +118,6 @@ body {
 
 .info-bar {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -290,9 +289,5 @@ body {
     justify-content: center;
     align-content: center;
     height: 200px;
-  }
-
-  .info-bar {
-    flex-direction: row;
   }
 }
