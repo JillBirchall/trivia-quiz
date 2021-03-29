@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="quiz-question-container" id="quizContainer">
+            <div class="spinning-loader" id="spinningLoader"></div>
+            <div class="quiz-question hidden" id="quizQuestion">
+                <div class="info-bar">
+                    <div class="progress"><span id="currentQuestion"></span>/20</div>
+                    <div class="timer" id="questionTimer">
+                        <p class="seconds" id="secondsLeft">0</p>
+                        <div class="timer-bar">
+                            <div class="timer-bar-full" id="timerBarFull"></div>
+                        </div>
+                    </div>
+                    <p class="score">Score: <span id="score">0</span></p>
+                </div>
+                <h2 class="question-number">
+                    Question <span id="questionNumber">1</span>
+                </h2>
+                <h3 class="question" id="question"></h3>
+                <div class="answers">
+                    <button class="answer-btn btn" data-answer=0></button>
+                    <button class="answer-btn btn" data-answer=1></button>
+                    <button class="answer-btn btn" data-answer=2></button>
+                    <button class="answer-btn btn" data-answer=3></button>
+                </div>
+            </div>
+            <div class="final-score-display hidden" id="finalScoreDisplay">
+                <h1 class="final-score-text">
+                    Final Score: <span id="finalScore" class="final-score"></span>
+                </h1>
+                <a href="index.html" class="play-again-btn btn">Play Again</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

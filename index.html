@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="quiz.html" class="quiz-form">
+        <h1 class="title">Quiz</h1>
+        <div class="select-box-container category-select">
+          <label for="category">Category:</label>
+          <select name="category" id="category" class="select-box">
+            <option value="general-knowledge">General Knowledge</option>
+            <option value="movies">Movies</option>
+            <option value="nature">Science and Nature</option>
+            <option value="video-games">Video Games</option>
+            <option value="geography">Geography</option>
+            <option value="history">History</option>
+            <option value="sports">Sports</option>
+          </select>
+        </div>
+        <div class="select-box-container difficulty-select">
+          <label for="difficulty">Difficulty:</label>
+          <select name="difficulty" id="difficulty" class="select-box">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <button type="submit" class="start-btn btn">Start Quiz!</button>
+      </form>
+    </div>
+  </body>
+</html>
