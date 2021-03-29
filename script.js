@@ -186,8 +186,3 @@ async function fetchQuestions() {
 }
 
 fetchQuestions();
-
-//Error handling - display an error page for different types of error. eg There is a problem with your internet. An Error occured, try again etc
-//Help page with details of how the score is calculated
-//Improve formatting and appearance
-//Change loading spinner
