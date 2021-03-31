@@ -21,15 +21,15 @@
     <div class="container">
       <div class="info-bar">
         <p class="score">Score: <span id="score">0</span></p>
+        <div class="timer" id="questionTimer">
+          <p class="seconds" id="secondsLeft">0</p>
+          <div class="timer-bar">
+            <div class="timer-bar-full" id="timerBarFull"></div>
+          </div>
+        </div>
         <div class="progress"><span id="currentQuestion"></span>/20</div>
       </div>
-      <div class="timer" id="questionTimer">
-        <p class="seconds" id="secondsLeft">0</p>
-        <div class="timer-bar">
-          <div class="timer-bar-full" id="timerBarFull"></div>
-        </div>
-      </div>
-      <div class="quiz-question-container" id="quizContainer">
+      <div class="quiz-question-container hidden" id="quizContainer">
         <div class="spinning-loader" id="spinningLoader"></div>
         <div class="quiz-question hidden" id="quizQuestion">
           <h2 class="question-number">
