@@ -7,7 +7,7 @@ const timeLeftDisplay = document.getElementById("secondsLeft");
 const timerBarFull = document.getElementById("timerBarFull");
 const finalScoreContainer = document.getElementById("finalScoreDisplay");
 const finalScoreDisplay = document.getElementById("finalScore");
-const loader = document.getElementById("spinningLoader");
+const loader = document.getElementById("loader");
 const quizQuestionDisplay = document.getElementById("quizQuestion");
 const quizContainer = document.getElementById("quizContainer");
 
@@ -155,6 +155,7 @@ function displayFinalScore() {
 
 function removeLoader() {
   loader.classList.add("hidden");
+  loader.classList.remove("show");
   quizContainer.classList.remove("hidden");
   quizContainer.classList.add("show");
 }
