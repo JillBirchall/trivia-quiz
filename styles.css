@@ -337,18 +337,15 @@ td {
   border-radius: 50%;
   margin: 0px 20px;
   background-color: white;
-}
-
-.circle-1 {
   animation: expand-contract-circle 1.5s infinite ease-in-out;
 }
 
 .circle-2 {
-  animation: expand-contract-circle 1.5s 0.25s infinite ease-in-out;
+  animation-delay: 0.25s;
 }
 
 .circle-3 {
-  animation: expand-contract-circle 1.5s 0.5s infinite ease-in-out;
+  animation-delay: 0.5s;
 }
 
 @keyframes expand-contract-circle {
