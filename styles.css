@@ -104,8 +104,9 @@ body {
 }
 
 .modal-box {
-  margin-top: 5%;
-  width: 70%;
+  margin: 5% 0;
+  min-width: 50%;
+  max-width: 70%;
   background-color: white;
   padding: 0 1rem 1rem 1rem;
   display: flex;
@@ -117,7 +118,7 @@ body {
 .modal-title {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .modal-text {
