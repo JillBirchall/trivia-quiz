@@ -162,11 +162,26 @@ function removeLoader() {
 
 async function fetchQuestions() {
   let categoryId = getCategoryId(category);
-  let quizUrl = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
+  let quizUrl = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficuly=${difficulty}&type=multiple`;
 
-  let response = await fetch(quizUrl);
-  let retrievedQuestions = await response.json();
+  try {
+    let response = await fetch(quizUrl);
+    if (response.ok) {
+      let retrievedQuestions = await response.json();
+      if (retrievedQuestions.response_code === 0) {
+        loadQuestions(retrievedQuestions);
+      } else {
+        throw new Error(response.statusText);
+      }
+    } else {
+      throw new Error(response.statusText);
+    }
+  } catch (err) {
+    displayErrorMessage();
+  }
+}
 
+function loadQuestions(retrievedQuestions) {
   questions = retrievedQuestions.results.map((retrievedQuestion) => {
     const formattedQuestion = { question: retrievedQuestion.question };
     formattedQuestion.possibleAnswers = [
@@ -185,6 +200,10 @@ async function fetchQuestions() {
 
   removeLoader();
   generateNextQuestion();
+}
+
+function displayErrorMessage() {
+  return window.location.replace("error.html");
 }
 
 fetchQuestions();
