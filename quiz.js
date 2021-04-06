@@ -162,7 +162,7 @@ function removeLoader() {
 
 async function fetchQuestions() {
   let categoryId = getCategoryId(category);
-  let quizUrl = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficuly=${difficulty}&type=multiple`;
+  let quizUrl = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
 
   try {
     let response = await fetch(quizUrl);
