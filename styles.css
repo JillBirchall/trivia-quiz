@@ -19,6 +19,8 @@ body {
   box-sizing: border-box;
 }
 
+/* Global Styles */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -34,6 +36,12 @@ body {
     rgba(122, 255, 205, 1) 100%
   );
   background-size: auto;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5),
+    0 6px 20px 0 rgba(156, 156, 156, 0.3);
 }
 
 .title {
@@ -63,8 +71,18 @@ body {
   display: flex;
 }
 
-.show.info-bar {
-  display: grid;
+.btn {
+  font-family: var(--text-font-family);
+  background-color: var(--primary-button-colour);
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: white;
+  color: var(--primary-button-colour);
+  border: 1px solid var(--primary-button-colour);
 }
 
 /* Nav Bar */
@@ -158,10 +176,7 @@ td {
   align-items: flex-start;
   min-height: 350px;
   max-width: 400px;
-  background-color: rgba(255, 255, 255, 0.75);
   margin: 50px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5),
-    0 6px 20px 0 rgba(156, 156, 156, 0.3);
   padding: 20px;
 }
 
@@ -181,25 +196,14 @@ td {
 }
 
 .start-btn {
-  font-family: var(--text-font-family);
   align-self: center;
-  background-color: var(--primary-button-colour);
-  color: white;
   height: 40px;
   width: 150px;
-  border: none;
   font-size: 16px;
   margin-bottom: 5px;
 }
 
-.btn:hover {
-  cursor: pointer;
-  background-color: white;
-  color: var(--primary-button-colour);
-  border: 1px solid var(--primary-button-colour);
-}
-
-/* Error Message */
+/* Error Page */
 .error-message-display {
   display: flex;
   flex-direction: column;
@@ -208,10 +212,7 @@ td {
   min-width: 40%;
   min-height: 25vh;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
   margin: 40px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),
-    0 6px 20px 0 rgba(156, 156, 156, 0.3);
 }
 
 .error-heading {
@@ -224,12 +225,8 @@ td {
 }
 
 .home-btn {
-  font-family: var(--text-font-family);
-  background-color: var(--primary-button-colour);
-  color: white;
   height: 40px;
   width: 150px;
-  border: none;
   font-size: 20px;
   text-decoration: none;
   bottom: 10px;
@@ -246,10 +243,7 @@ td {
   width: 90%;
   min-height: 50%;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
   margin: 20px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),
-    0 6px 20px 0 rgba(156, 156, 156, 0.3);
 }
 
 .quiz-question {
@@ -261,8 +255,53 @@ td {
   margin: 10px;
 }
 
+.question-number {
+  font-family: var(--title-font-family);
+  color: var(--primary-text-colour);
+  margin: 10px;
+}
+
+.question {
+  font-family: var(--text-font-family);
+  color: var(--secondary-text-color);
+  font-weight: normal;
+  font-size: 1.5em;
+  margin: 10px 10px 15px 10px;
+  text-align: center;
+}
+
+.answer-btn {
+  margin: 5px;
+  width: 250px;
+  min-height: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+}
+
+.answer-btn.correct:hover,
+.answer-btn.incorrect:hover {
+  border-color: white;
+}
+
+.answer-btn.correct {
+  background-color: var(--correct-answer-colour);
+  color: white;
+}
+
+.answer-btn.incorrect {
+  background-color: var(--incorrect-answer-colour);
+  color: white;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Info Bar */
+
 .info-bar {
-  /* display: grid; */
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -274,10 +313,21 @@ td {
     "timer timer";
 }
 
+.show.info-bar {
+  display: grid;
+}
+
 .progress {
   grid-area: progress;
   font-family: var(--title-font-family);
   text-align: right;
+  font-size: 1.5em;
+}
+
+.score {
+  grid-area: score;
+  text-align: left;
+  font-family: var(--title-font-family);
   font-size: 1.5em;
 }
 
@@ -312,64 +362,8 @@ td {
   font-size: 1.5em;
 }
 
-.score {
-  grid-area: score;
-  text-align: left;
-  font-family: var(--title-font-family);
-  font-size: 1.5em;
-}
-
-.question-number {
-  font-family: var(--title-font-family);
-  color: var(--primary-text-colour);
-  margin: 10px;
-}
-
-.question {
-  font-family: var(--text-font-family);
-  color: var(--secondary-text-color);
-  font-weight: normal;
-  font-size: 1.5em;
-  margin: 10px 10px 15px 10px;
-  text-align: center;
-}
-
-.answer-btn {
-  font-family: var(--text-font-family);
-  background-color: var(--primary-button-colour);
-  border: none;
-  margin: 5px;
-  width: 250px;
-  min-height: 40px;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-  outline: none;
-}
-
-.answer-btn.correct:hover,
-.answer-btn.incorrect:hover {
-  border-color: white;
-}
-
-.answer-btn.correct {
-  background-color: var(--correct-answer-colour);
-  color: white;
-}
-
-.answer-btn.incorrect {
-  background-color: var(--incorrect-answer-colour);
-  color: white;
-}
-
-.answers {
-  display: flex;
-  flex-direction: column;
-}
-
 /* Loader */
-
-.three-circles {
+.three-circles-loader {
   margin-top: 30vh;
   flex-direction: row;
   align-items: center;
@@ -411,12 +405,9 @@ td {
   justify-content: space-around;
   align-items: center;
   font-family: var(--text-font-family);
-  background-color: rgba(255, 255, 255, 0.75);
   padding: 2%;
   margin-top: 5%;
   max-width: 90%;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3),
-    0 6px 20px 0 rgba(156, 156, 156, 0.3);
 }
 
 .final-score {
@@ -429,12 +420,8 @@ td {
 }
 
 .play-again-btn {
-  font-family: var(--text-font-family);
-  background-color: var(--primary-button-colour);
-  color: white;
   height: 40px;
   width: 150px;
-  border: none;
   font-size: 20px;
   margin-top: 50px;
   text-decoration: none;
