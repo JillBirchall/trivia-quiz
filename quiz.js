@@ -1,28 +1,36 @@
-const questionDisplay = document.getElementById("question");
-const answerBtns = Array.from(document.getElementsByClassName("answer-btn"));
+/* Loader */
+const loader = document.getElementById("loader");
+
+/* Info Bar and Contents Display */
+const infoBarContainer = document.getElementById("infoBar");
 const scoreDisplay = document.getElementById("score");
 const questionNumberDisplay = document.getElementById("questionNumber");
 const questionProgressDisplay = document.getElementById("currentQuestion");
 const timeLeftDisplay = document.getElementById("secondsLeft");
 const timerBarFull = document.getElementById("timerBarFull");
-const finalScoreContainer = document.getElementById("finalScoreDisplay");
-const finalScoreDisplay = document.getElementById("finalScore");
-const loader = document.getElementById("loader");
+
+/* Quiz Display */
 const quizQuestionDisplay = document.getElementById("quizQuestion");
 const quizContainer = document.getElementById("quizContainer");
-const infoBarContainer = document.getElementById("infoBar");
+const questionDisplay = document.getElementById("question");
+const answerBtns = Array.from(document.getElementsByClassName("answer-btn"));
 
+/* Final Score Display*/
+const finalScoreContainer = document.getElementById("finalScoreDisplay");
+const finalScoreDisplay = document.getElementById("finalScore");
+
+const NUMBER_OF_QUESTIONS = 20;
 let currentQuestion = "";
 let currentAnswers = [];
 let correctAnswer;
 let currentQuestionNumber = 1;
 let questions = [];
-score = 0;
+let score = 0;
 let acceptingAnswers = false;
 let timeLeft = 15;
 let timer;
 
-//Get the selected category
+//Set the selected category and difficulty
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const category = urlParams.get("category");
@@ -44,28 +52,6 @@ answerBtns.forEach((answerBtn) => {
     setTimeout(generateNextQuestion, 2000);
   });
 });
-
-function updateScore() {
-  if (timeLeft > 10) {
-    score += 30;
-  } else if (timeLeft > 5) {
-    score += 20;
-  } else {
-    score += 10;
-  }
-  scoreDisplay.innerText = score;
-}
-
-function updateTimer() {
-  timeLeft--;
-  timeLeftDisplay.innerText = timeLeft;
-  timerBarFull.style.width = `${(timeLeft / 15) * 100}%`;
-  if (timeLeft < 11 && timeLeft > 5) {
-    timerBarFull.style.background = "yellow";
-  } else if (timeLeft < 6) {
-    timerBarFull.style.background = "red";
-  }
-}
 
 function getCategoryId(categoryName) {
   let categoryId;
@@ -99,73 +85,128 @@ function getCategoryId(categoryName) {
   return categoryId;
 }
 
-function generateNextQuestion() {
-  if (currentQuestionNumber <= 20) {
-    resetQuestion();
-    currentQuestion = questions[currentQuestionNumber - 1].question;
-    currentAnswers = questions[currentQuestionNumber - 1].possibleAnswers;
-    correctAnswer = questions[currentQuestionNumber - 1].correctAnswer;
-    updateCurrentQuestion();
-    updateCurrentAnswers();
-    acceptingAnswers = true;
-    timeLeft = 15;
-    timeLeftDisplay.innerText = timeLeft;
-    timerBarFull.style.background = "green";
-    timerBarFull.style.width = "100%";
+function setQuestionAndAnswers() {
+  currentQuestion = questions[currentQuestionNumber - 1].question;
+  currentAnswers = questions[currentQuestionNumber - 1].possibleAnswers;
+  correctAnswer = questions[currentQuestionNumber - 1].correctAnswer;
+}
 
-    timer = setInterval(() => {
-      updateTimer();
-      if (timeLeft <= 0) {
-        clearInterval(timer);
-        currentQuestionNumber += 1;
-        generateNextQuestion();
-      }
-    }, 1000);
+function generateNextQuestion() {
+  if (currentQuestionNumber <= NUMBER_OF_QUESTIONS) {
+    resetAnswerButtons();
+    setQuestionAndAnswers();
+    updateQuestion();
+    updateAnswers();
+    acceptingAnswers = true;
+    startTimer();
   } else {
     displayFinalScore();
   }
 }
 
-function resetQuestion() {
+function startTimer() {
+  timeLeft = 15;
+  timeLeftDisplay.innerText = timeLeft;
+  timerBarFull.style.background = "green";
+  timerBarFull.style.width = "100%";
+
+  timer = setInterval(() => {
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      currentQuestionNumber += 1;
+      generateNextQuestion();
+    }
+  }, 1000);
+}
+
+function updateTimer() {
+  timeLeft--;
+  timeLeftDisplay.innerText = timeLeft;
+  timerBarFull.style.width = `${(timeLeft / 15) * 100}%`;
+  if (timeLeft < 11 && timeLeft > 5) {
+    timerBarFull.style.background = "yellow";
+  } else if (timeLeft < 6) {
+    timerBarFull.style.background = "red";
+  }
+}
+
+function resetAnswerButtons() {
   answerBtns.forEach((answerBtn) => {
     answerBtn.classList.remove("correct");
     answerBtn.classList.remove("incorrect");
   });
 }
 
-function updateCurrentQuestion() {
+function updateQuestion() {
   questionNumberDisplay.innerText = currentQuestionNumber;
   questionDisplay.innerHTML = currentQuestion;
   questionProgressDisplay.innerText = currentQuestionNumber;
 }
 
-function updateCurrentAnswers() {
+function updateAnswers() {
   answerBtns.forEach((answerBtn) => {
     answerNumber = answerBtn.dataset.answer;
     answerBtn.innerHTML = currentAnswers[answerNumber];
   });
 }
 
-function displayFinalScore() {
-  infoBarContainer.classList.remove("show");
-  infoBarContainer.classList.add("hidden");
+function showQuiz() {
+  quizContainer.classList.remove("hidden");
+  quizContainer.classList.add("show");
+}
+
+function hideQuiz() {
   quizContainer.classList.remove("show");
   quizContainer.classList.add("hidden");
+}
+
+function showFinalScore() {
   finalScoreContainer.classList.remove("hidden");
   finalScoreContainer.classList.add("show");
   finalScoreDisplay.innerText = score;
 }
 
-function removeLoader() {
+function showInfoBar() {
   infoBarContainer.classList.remove("hidden");
   infoBarContainer.classList.add("show");
-  loader.classList.add("hidden");
-  loader.classList.remove("show");
-  quizContainer.classList.remove("hidden");
-  quizContainer.classList.add("show");
 }
 
-async function fetchQuestions() {
+function hideInfoBar() {
+  infoBarContainer.classList.remove("show");
+  infoBarContainer.classList.add("hidden");
+}
+
+function hideLoader() {
+  loader.classList.add("hidden");
+  loader.classList.remove("show");
+}
+
+function displayFinalScore() {
+  hideQuiz();
+  hideInfoBar();
+  showFinalScore();
+}
+
+function updateScore() {
+  if (timeLeft > 10) {
+    score += 30;
+  } else if (timeLeft > 5) {
+    score += 20;
+  } else {
+    score += 10;
+  }
+  scoreDisplay.innerText = score;
+}
+
+function startQuiz() {
+  showQuiz();
+  showInfoBar();
+  hideLoader();
+  generateNextQuestion();
+}
+
+async function getQuestions() {
   let categoryId = getCategoryId(category);
   let quizUrl = `https://opentdb.com/api.php?amount=20&category=${categoryId}&difficulty=${difficulty}&type=multiple`;
 
@@ -174,7 +215,7 @@ async function fetchQuestions() {
     if (response.ok) {
       let retrievedQuestions = await response.json();
       if (retrievedQuestions.response_code === 0) {
-        loadQuestions(retrievedQuestions);
+        formatQuestions(retrievedQuestions);
       } else {
         throw new Error(response.statusText);
       }
@@ -182,11 +223,11 @@ async function fetchQuestions() {
       throw new Error(response.statusText);
     }
   } catch (err) {
-    displayErrorMessage();
+    displayErrorPage();
   }
 }
 
-function loadQuestions(retrievedQuestions) {
+function formatQuestions(retrievedQuestions) {
   questions = retrievedQuestions.results.map((retrievedQuestion) => {
     const formattedQuestion = { question: retrievedQuestion.question };
     formattedQuestion.possibleAnswers = [
@@ -203,12 +244,11 @@ function loadQuestions(retrievedQuestions) {
     return formattedQuestion;
   });
 
-  removeLoader();
-  generateNextQuestion();
+  startQuiz();
 }
 
-function displayErrorMessage() {
+function displayErrorPage() {
   return window.location.replace("error.html");
 }
 
-fetchQuestions();
+getQuestions();
