@@ -10,6 +10,7 @@ const finalScoreDisplay = document.getElementById("finalScore");
 const loader = document.getElementById("loader");
 const quizQuestionDisplay = document.getElementById("quizQuestion");
 const quizContainer = document.getElementById("quizContainer");
+const infoBarContainer = document.getElementById("infoBar");
 
 let currentQuestion = "";
 let currentAnswers = [];
@@ -146,6 +147,8 @@ function updateCurrentAnswers() {
 }
 
 function displayFinalScore() {
+  infoBarContainer.classList.remove("show");
+  infoBarContainer.classList.add("hidden");
   quizContainer.classList.remove("show");
   quizContainer.classList.add("hidden");
   finalScoreContainer.classList.remove("hidden");
@@ -154,6 +157,8 @@ function displayFinalScore() {
 }
 
 function removeLoader() {
+  infoBarContainer.classList.remove("hidden");
+  infoBarContainer.classList.add("show");
   loader.classList.add("hidden");
   loader.classList.remove("show");
   quizContainer.classList.remove("hidden");

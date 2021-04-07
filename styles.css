@@ -63,6 +63,10 @@ body {
   display: flex;
 }
 
+.show.info-bar {
+  display: grid;
+}
+
 /* Nav Bar */
 
 .nav-bar {
@@ -258,7 +262,7 @@ td {
 }
 
 .info-bar {
-  display: grid;
+  /* display: grid; */
   justify-content: space-between;
   align-items: center;
   width: 100%;
