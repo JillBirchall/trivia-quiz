@@ -481,7 +481,7 @@ td {
   }
 }
 
-@media (min-width: 700px) and (min-height: 500px) and (max-width: 799px) and {
+@media (min-width: 700px) and (min-height: 500px) {
   .select-box {
     font-size: 1em;
   }
