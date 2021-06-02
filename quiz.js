@@ -107,7 +107,7 @@ function generateNextQuestion() {
 function startTimer() {
   timeLeft = 15;
   timeLeftDisplay.innerText = timeLeft;
-  timerBarFull.style.background = "green";
+  timerBarFull.style.background = "var(--green-timer-colour)";
   timerBarFull.style.width = "100%";
 
   timer = setInterval(() => {
@@ -125,9 +125,9 @@ function updateTimer() {
   timeLeftDisplay.innerText = timeLeft;
   timerBarFull.style.width = `${(timeLeft / 15) * 100}%`;
   if (timeLeft < 11 && timeLeft > 5) {
-    timerBarFull.style.background = "yellow";
+    timerBarFull.style.background = "var(--yellow-timer-colour)";
   } else if (timeLeft < 6) {
-    timerBarFull.style.background = "red";
+    timerBarFull.style.background = "var(--red-timer-colour)";
   }
 }
 
