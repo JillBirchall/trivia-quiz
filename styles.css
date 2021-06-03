@@ -286,11 +286,6 @@ td {
   outline: none;
 }
 
-/* .answer-btn.correct:hover,
-.answer-btn.incorrect:hover {
-  border-color: white;
-} */
-
 .answer-btn.correct {
   background-color: var(--correct-answer-colour);
   color: white;
