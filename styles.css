@@ -286,10 +286,10 @@ td {
   outline: none;
 }
 
-.answer-btn.correct:hover,
+/* .answer-btn.correct:hover,
 .answer-btn.incorrect:hover {
   border-color: white;
-}
+} */
 
 .answer-btn.correct {
   background-color: var(--correct-answer-colour);
@@ -299,6 +299,28 @@ td {
 .answer-btn.incorrect {
   background-color: var(--incorrect-answer-colour);
   color: white;
+}
+
+.answer-btn.show-correct {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: var(--correct-answer-colour);
+  }
+  50% {
+    background-color: var(--correct-answer-colour);
+  }
+  60% {
+    background-color: var(--btn-colour);
+  }
+  99% {
+    background-color: var(--btn-colour);
+  }
+  100% {
+    background-color: var(--correct-answer-colour);
+  }
 }
 
 .answers {

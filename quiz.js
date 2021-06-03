@@ -47,6 +47,7 @@ answerBtns.forEach((answerBtn) => {
       updateScore();
     } else {
       e.target.classList.add("incorrect");
+      showCorrectAnswer();
     }
     currentQuestionNumber += 1;
     setTimeout(generateNextQuestion, 2000);
@@ -135,6 +136,7 @@ function resetAnswerButtons() {
   answerBtns.forEach((answerBtn) => {
     answerBtn.classList.remove("correct");
     answerBtn.classList.remove("incorrect");
+    answerBtn.classList.remove("show-correct");
   });
 }
 
@@ -148,6 +150,14 @@ function updateAnswers() {
   answerBtns.forEach((answerBtn) => {
     answerNumber = answerBtn.dataset.answer;
     answerBtn.innerHTML = currentAnswers[answerNumber];
+  });
+}
+
+function showCorrectAnswer() {
+  answerBtns.forEach((answerBtn) => {
+    if (answerBtn.dataset.answer == correctAnswer) {
+      answerBtn.classList.add("show-correct");
+    }
   });
 }
 
