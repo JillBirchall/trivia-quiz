@@ -8,7 +8,7 @@ Each question has a 15 second timer, and the score awarded for the correct answe
 - 6 to 10 seconds: 20 points
 - 11 to 15 seconds: 30 points
 
-After an answer is clicked, it is highlighted in green if it is the correct answer, otherwise it is highlighted in red.
+After an answer is clicked, it is highlighted in green if it is the correct answer, otherwise it is highlighted in red. If an incorrect answer is selected, the correct answer flashes in green.
 
 The final score is displayed at the end of the quiz, with an option to play again.
 
@@ -22,6 +22,4 @@ I originally intended to have the category list dynamically generated from all t
 
 ## Future Improvements
 
-- If the wrong answer is clicked, also highlight the correct answer in green.
-- Make further improvements and changes to the appearance of the app
 - Add a back-end and create a high score table
