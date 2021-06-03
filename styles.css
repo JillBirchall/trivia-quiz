@@ -501,16 +501,6 @@ td {
   }
 }
 
-@media (min-width: 700px) and (min-height: 500px) {
-  .select-box {
-    font-size: 1em;
-  }
-
-  .select-box-container label {
-    font-size: 1em;
-  }
-}
-
 @media (min-width: 800px) and (min-height: 600px) {
   .quiz-form {
     height: 50vh;
@@ -636,5 +626,10 @@ td {
 
   .seconds {
     font-size: 2em;
+  }
+
+  /* Final Score */
+  .final-score-display {
+    height: 30vh;
   }
 }
