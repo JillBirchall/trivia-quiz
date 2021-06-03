@@ -112,11 +112,19 @@ th {
   text-shadow: 1px 1px 3px rgba(66, 66, 66, 0.3);
   list-style: none;
   transition: transform 0.1s ease-in;
+  -webkit-transition: transform 0.1s ease-in;
+  -moz-transition: transform 0.1s ease-in;
+  -ms-transition: transform 0.1s ease-in;
+  -o-transition: transform 0.1s ease-in;
 }
 
 .nav-link:hover {
   cursor: pointer;
   transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
 }
 
 /* Modals */
@@ -298,6 +306,7 @@ td {
 
 .answer-btn.show-correct {
   animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
 }
 
 @keyframes blink {
@@ -404,6 +413,7 @@ td {
   margin: 0px 20px;
   background-color: white;
   animation: expand-contract-circle 1.5s infinite ease-in-out;
+  -webkit-animation: expand-contract-circle 1.5s infinite ease-in-out;
 }
 
 .circle-2 {
@@ -437,6 +447,10 @@ td {
   width: 70%;
   height: 40vh;
   border-radius: var(--container-border-radius);
+  -webkit-border-radius: var(--container-border-radius);
+  -moz-border-radius: var(--container-border-radius);
+  -ms-border-radius: var(--container-border-radius);
+  -o-border-radius: var(--container-border-radius);
 }
 
 .final-score {
