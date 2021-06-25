@@ -12,9 +12,11 @@ After an answer is clicked, it is highlighted in green if it is the correct answ
 
 The final score is displayed at the end of the quiz, with an option to play again.
 
-The questions used in this quiz are taken from the [Open Trivia DB](https://opentdb.com) API.
+The questions used in this quiz are taken from the [Open Trivia DB](https://opentdb.com) API. These questions are licenced under a Creative Commons Attribution-ShareAlike 4.0 International license http://creativecommons.org/licenses/by-sa/4.0/
 
 This app also features a loader and an error page which is displayed in cases where the questions cannot be retrieved from the API for any reason.
+
+The home page for this app has a Lighthouse Perfect Score for both desktop and mobile!
 
 ## Issues I encountered
 
