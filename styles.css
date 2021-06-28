@@ -354,7 +354,7 @@ td {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 50px;
+  height: 100px;
   color: white;
   padding: 0px 10px 0px 10px;
   grid-template-areas:
