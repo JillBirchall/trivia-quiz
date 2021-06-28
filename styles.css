@@ -48,6 +48,11 @@ body {
   background-color: var(--secondary-colour);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3),
     0 6px 20px 0 rgba(156, 156, 156, 0.3);
+  border-radius: var(--container-border-radius);
+  -webkit-border-radius: var(--container-border-radius);
+  -moz-border-radius: var(--container-border-radius);
+  -ms-border-radius: var(--container-border-radius);
+  -o-border-radius: var(--container-border-radius);
 }
 
 .title {
@@ -89,6 +94,10 @@ th {
   color: white;
   border: none;
   border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
 }
 
 .btn:hover {
@@ -155,6 +164,10 @@ th {
   background-color: var(--secondary-colour);
   padding: 0 1rem 1rem 1rem;
   border-radius: var(--container-border-radius);
+  -webkit-border-radius: var(--container-border-radius);
+  -moz-border-radius: var(--container-border-radius);
+  -ms-border-radius: var(--container-border-radius);
+  -o-border-radius: var(--container-border-radius);
 }
 
 .modal-title {
@@ -200,7 +213,6 @@ td {
   margin: 10%;
   padding: 5%;
   height: 40vh;
-  border-radius: var(--container-border-radius);
 }
 
 .select-box {
@@ -263,7 +275,6 @@ td {
   min-height: 50%;
   padding: 5%;
   margin: 10%;
-  border-radius: var(--container-border-radius);
 }
 
 .quiz-question {
@@ -271,7 +282,6 @@ td {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1em;
   margin: 10px;
   width: 100%;
 }
@@ -279,7 +289,7 @@ td {
 .question-number {
   color: var(--subheading-colour);
   margin: 5px;
-  font-size: 1.75rem;
+  font-size: 24px;
 }
 
 .question {
@@ -287,6 +297,7 @@ td {
   font-weight: normal;
   margin: 10px 10px 15px 10px;
   text-align: center;
+  font-size: 18px;
 }
 
 .answer-btn {
@@ -294,7 +305,7 @@ td {
   width: 100%;
   min-height: 40px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 18px;
   outline: none;
 }
 
@@ -387,6 +398,10 @@ td {
   width: 180px;
   border: 1px solid #ffffff;
   border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
 }
 
 .timer-bar-full {
@@ -394,6 +409,10 @@ td {
   width: 100%;
   background-color: var(--green-timer-colour);
   border-radius: 9999px;
+  -webkit-border-radius: 9999px;
+  -moz-border-radius: 9999px;
+  -ms-border-radius: 9999px;
+  -o-border-radius: 9999px;
 }
 
 .seconds {
@@ -413,11 +432,15 @@ td {
 .circle {
   height: 20px;
   width: 20px;
-  border-radius: 50%;
   margin: 0px 20px;
   background-color: white;
   animation: expand-contract-circle 1.5s infinite ease-in-out;
   -webkit-animation: expand-contract-circle 1.5s infinite ease-in-out;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .circle-2 {
@@ -446,15 +469,10 @@ td {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 3%;
-  margin-top: 5%;
-  width: 70%;
-  height: 40vh;
-  border-radius: var(--container-border-radius);
-  -webkit-border-radius: var(--container-border-radius);
-  -moz-border-radius: var(--container-border-radius);
-  -ms-border-radius: var(--container-border-radius);
-  -o-border-radius: var(--container-border-radius);
+  min-width: 40%;
+  min-height: 15vh;
+  padding: 10px;
+  margin: 40px;
 }
 
 .final-score {
@@ -588,13 +606,12 @@ td {
     padding: 1% 3%;
   }
 
-  .quiz-question {
-    font-size: 1.25rem;
+  .question-number {
+    font-size: 28px;
   }
 
   .question {
-    margin-top: 3%;
-    font-size: 1.25em;
+    font-size: 24px;
   }
 
   .answers {
@@ -604,12 +621,7 @@ td {
   .answer-btn {
     width: 100%;
     min-height: 60px;
-    font-size: 1em;
-  }
-
-  .final-score-display {
-    padding: 1%;
-    width: 30%;
+    font-size: 24px;
   }
 
   .error-heading {
@@ -640,15 +652,19 @@ td {
   }
 
   .question-number {
-    font-size: 1.5em;
+    font-size: 36px;
   }
 
   .question {
-    font-size: 1.25em;
+    font-size: 28px;
   }
 
   .quiz-form {
     width: 40%;
+  }
+
+  .answer-btn {
+    font-size: 28px;
   }
 
   .progress {
@@ -661,10 +677,5 @@ td {
 
   .seconds {
     font-size: 2em;
-  }
-
-  /* Final Score */
-  .final-score-display {
-    height: 30vh;
   }
 }
