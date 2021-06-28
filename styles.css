@@ -22,6 +22,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--primary-font-family);
+  height: 100%;
+  background-color: var(--primary-colour);
 }
 
 *,
@@ -37,11 +39,8 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-height: 100%;
   height: 100%;
   width: 100%;
-  background: var(--primary-colour);
-  background-size: auto;
 }
 
 .card {
