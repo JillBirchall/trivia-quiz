@@ -99,11 +99,6 @@ th {
   -o-border-radius: 9999px;
 }
 
-.btn:hover {
-  cursor: pointer;
-  background-color: var(--btn-hover-color);
-}
-
 /* Nav Bar */
 
 .nav-bar {
@@ -128,15 +123,6 @@ th {
   -moz-transition: transform 0.1s ease-in;
   -ms-transition: transform 0.1s ease-in;
   -o-transition: transform 0.1s ease-in;
-}
-
-.nav-link:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
 }
 
 /* Modals */
@@ -193,12 +179,6 @@ td {
   font-size: 2.5rem;
   position: absolute;
   right: 20px;
-}
-
-.close-icon:hover {
-  cursor: pointer;
-  opacity: 1;
-  transform: scale(1.1);
 }
 
 /* Quiz Input Form */
@@ -494,6 +474,28 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (hover: hover) {
+  .nav-link:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+  }
+
+  .close-icon:hover {
+    cursor: pointer;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .btn:hover {
+    cursor: pointer;
+    background-color: var(--btn-hover-color);
+  }
 }
 
 @media (min-width: 500px) {
