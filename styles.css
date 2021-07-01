@@ -522,7 +522,7 @@ td {
 @media (orientation: portrait) and (min-width: 650px) {
   .quiz-form {
     width: 60%;
-    height: 35%;
+    height: 35vh;
   }
 
   .quiz-question-container {
