@@ -3,8 +3,8 @@
   --secondary-colour: #eef0f0;
   --accent-colour: #0d21a1;
   --container-border-radius: 20px;
-  --primary-font-family: "Quicksand", sans-serif;
-  --secondary-font-family: "Roboto", sans-serif;
+  --primary-font-family: "Quicksand", "Trebuchet MS", sans-serif;
+  --secondary-font-family: "Roboto", Arial, sans-serif;
   --heading-colour: var(--accent-colour);
   --subheading-colour: var(--accent-colour);
   --text-colour: #141414;
